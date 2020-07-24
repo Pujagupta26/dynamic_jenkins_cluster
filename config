@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Config
+clusters:
+- cluster:
+    certificate-authority: /root/ca.crt
+    server: https://192.168.99.104:8443
+  name: mylocal
+contexts:
+- context:
+    cluster: mylocal
+    user: gourav
+  name: "mylocalc"
+users:
+- user:
+    client-certificate: /root/client.crt
+    client-key: /root/client.key
+  name: gourav
+current-context: "mylocalc"
